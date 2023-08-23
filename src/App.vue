@@ -13,6 +13,7 @@
 <template> 
   <TheHeader></TheHeader>
   <main> Content goes here</main>
+  <ThePreFooter></ThePreFooter>
   <TheFooter></TheFooter>
 </template>
 <style>  </style>
