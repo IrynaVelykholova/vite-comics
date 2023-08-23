@@ -1,26 +1,36 @@
 <script>
     export default {
-    components:{
+        data() {
+            return {
+                navLinks: [
+                    { name: "CHARACTERS" },
+                    { name: "COMICS"},
+                    { name: "MOVIES"},
+                    { name: "TV" },
+                    { name: "GAMES" },
+                    { name: "COLLECTABLES" },
+                    { name: "VIDEOS" },
+                    { name: "FANS" },
+                    { name: "NEWS" },
+                    { name: "SHOP" },
+                ],
+            };
+        },
 
-    }
+    
 } 
 </script>
 
 <template> 
     <header class="container">
         <img src="../assets/img/dc-logo.png" alt="Logo DC">
-        <ul>
-            <li><a href="#" class="nav-link">CHARACTERS</a></li>
-            <li><a href="#" class="nav-link">COMICS</a></li>
-            <li><a href="#" class="nav-link">MOVIES</a></li>
-            <li><a href="#" class="nav-link">TV</a></li>
-            <li><a href="#" class="nav-link">GAMES</a></li>
-            <li><a href="#" class="nav-link">COLLECTIBLES</a></li>
-            <li><a href="#" class="nav-link">VIDEOS</a></li>
-            <li><a href="#" class="nav-link">FANS</a></li>
-            <li><a href="#" class="nav-link">NEWS</a></li>
-            <li><a href="#" class="nav-link">SHOP</a></li>
-        </ul>
+        <div class="d-flex align-items-center">
+            <div class="ms-3" v-for="link in navLinks"> 
+                <a href="#" class="nav-link">
+                    {{ link.name }}
+                </a>
+            </div>
+        </div>
     </header>
 </template>
 
@@ -38,15 +48,6 @@ header {
     align-self: center;
     }
 
-    ul {
-    display: flex;
-    align-items: center;
-        li {
-            list-style: none;
-            margin-left: 12px;
-        }
-    }
-
     nav-link {
         text-decoration: none;
         color: black;
@@ -56,12 +57,4 @@ header {
         }
     }
 }
-
-
-
-
-
-
-
-
 </style>

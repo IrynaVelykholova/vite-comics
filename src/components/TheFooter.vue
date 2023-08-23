@@ -1,85 +1,106 @@
 <script>
     
     export default {
-    components:{
+        data() {
+            return {
+                DcComicsLinks: [
+                    { name: "Characters"},
+                    { name: "Comics" },
+                    { name: "Movies"},
+                    { name: "Tv"},
+                    { name: "Games"},
+                    { name: "Videos"},
+                    { name: "News"},
+                    ],
+                ShopLinks:[
+                    { name: "Shop Dc"},
+                    { name: "Shop Collectables" },
+                    ],
+                DCLinks:[
+                    { name: "Terms Of Use"},
+                    { name: "Privacy Policy(New)" },
+                    { name: "AdChoice"},
+                    { name: "Advertising"},
+                    { name: "Jobs"},
+                    { name: "Subscriptions"},
+                    { name: "Talent Workshops"},
+                    { name: "CPSC Certificates"},
+                    { name: "Ratings"},
+                    { name: "Shop Help"},
+                    { name: "Contact Us"},
+                    ],
+                SitesLinks:[
+                    { name: "DC"},
+                    { name: "Mad Magazine"},
+                    { name: "DC Kids"},
+                    { name: "DC Universe"},
+                    { name: "DC Power Visa"},
+                    ],
 
+                footerLinks: [
+                    { name: "DIGITAL COMICS", img: "buy-comics-digital-comics.png" },
+                    { name: "DC MERCHANDISE", img: "buy-comics-merchandise.png" },
+                    { name: "SUBSCRIPTION", img: "buy-comics-subscriptions.png" },
+                    { name: "COMIC SHOP LOCATOR", img: "buy-comics-shop-locator.png" },
+                    { name: "DC POWER VISA", img: "buy-dc-power-visa.svg" },
+                ]
+                };
+        },
     }
-} 
+
 </script>
 
 <template> 
     <footer>
         <section class="first-footer container">
-            <div class="d-flex align-items-center mt-3">
-                <div><img src="../assets/img/buy-comics-digital-comics.png" alt=""></div>
-                <p class="ms-2">DIGITAL COMICS</p>
-            </div>
-            
-            <div class="d-flex align-items-center mt-3">
-                <div><img src="../assets/img/buy-comics-merchandise.png" alt=""></div>
-                <p class="ms-2">DC MERCHANDISE</p>
-            </div>
-
-            <div class="d-flex align-items-center mt-3">
-                <div><img src="../assets/img/buy-comics-subscriptions.png" alt=""></div>
-                <p class="ms-2">SUBSCRIPTION</p>
-            </div>
-
-            <div class="d-flex align-items-center mt-3">
-                <div><img src="../assets/img/buy-comics-shop-locator.png" alt=""></div>
-                <p class="ms-2">COMIC SHOP LOCATOR</p>
-            </div>
-
-            <div class="d-flex align-items-center mt-3">
-                <div><img src="../assets/img/buy-dc-power-visa.svg" alt=""></div>
-                <p class="ms-2">DC POWER VISA</p>
-            </div>
+            <ul class="d-flex align-items-center justify-content-between">
+                <li v-for="link in footerLinks" class="mt-5">
+                    <a href="#" class="nav-link text-white">
+                        <img v-bind:src="`/src/assets/img/${link.img}`" class="blueImg" alt="" />
+                        {{ link.name }}
+                    </a>
+                </li>
+            </ul>
         </section>
 
         <section class="second-footer">
             <div class="container d-flex">
                 <div class="me-5">
-                    <h3 class="pt-5">DC COMICS</h3>
-                    <ul>
-                        <li>Characters</li>
-                        <li>Comics</li>
-                        <li>Movies</li>
-                        <li>TV</li>
-                        <li>Games</li>
-                        <li>Videos</li>
-                        <li>News</li>
-                    </ul>
+                    <h4 class="pt-5">DC COMICS</h4>
+                    <div v-for="link in DcComicsLinks">
+                        <a href="#">
+                            {{ link.name }}
+                        </a>
+                    </div>
 
-                    <h3 class="pt-2">SHOP</h3>
-                    <ul>
-                        <li>Characters</li>
-                        <li>Comics</li>
-                    </ul>
+                    <h4 class="pt-2">SHOP</h4>
+                    <div v-for="link in ShopLinks">
+                        <a href="#">
+                            {{ link.name }}
+                        </a>
+                    </div>
                 </div>
 
+
                 <div class="me-5">
-                    <h3 class="pt-5">DC</h3>
-                    <ul>
-                        <li>Characters</li>
-                        <li>Comics</li>
-                        <li>Movies</li>
-                        <li>TV</li>
-                        <li>Games</li>
-                        <li>Videos</li>
-                        <li>News</li>
-                    </ul>
+                    <h4 class="pt-5">DC</h4>
+                    <div v-for="link in DCLinks">
+                        <a href="#">
+                            {{ link.name }}
+                        </a>
+                    </div>
                 </div>
 
                 <div>
-                    <h3 class="pt-5">SITES</h3>
-                    <ul>
-                        <li>Characters</li>
-                        <li>Comics</li>
-                        <li>Movies</li>
-                        <li>TV</li>
-                        <li>Games</li>
-                    </ul>
+                    <h4 class="pt-5">SITES</h4>
+                    <div class="" v-for="link in SitesLinks">
+                        <a href="#">
+                            {{ link.name }}
+                        </a>
+                    </div>
                 </div>
+
+                <img src="../assets/img/dc-logo-bg.png" alt="" class="big-logo">
             </div>
         </section>
 
@@ -109,18 +130,23 @@
 <style lang="scss" scoped>
 @use "../styles/partials/variables.scss" as *;
     .first-footer {
-        display: flex;
-        justify-content: space-between;
+        min-height: 160px;
 
-        img {
-        width: 80px;
+        .blueImg {
+        max-height: 70px;
+        width: 50px;
         }
+
+        li {
+            list-style: none;
+        }  
     }
     
 
     footer {
         height: 170px;
         background-color: $color-primary;
+
         p {
         color: white;
         }
@@ -129,18 +155,28 @@
     .second-footer {
         background-image: url("../assets/img/footer-bg.jpg");
         height: 450px;
+        position: relative;
+        overflow: hidden;
 
-        h3 {
+        h4 {
         color: white;
         }
 
-        ul {
-            li {
-                color: $color-tertiary;
-                list-style: none;
-                margin-left: -2rem;
-            }
+        
+        a {
+            color: $color-tertiary;
+            list-style: none;
+            text-decoration: none;
         }
+
+        .big-logo {
+            height: 130%;
+            position: absolute;
+            right: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
     }
 
     .third-footer {
