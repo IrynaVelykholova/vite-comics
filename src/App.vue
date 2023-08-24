@@ -30,7 +30,7 @@
       <div class="text-center position-relative">
         <button class="position-absolute button-blue button-absolute">CURRENT SERIES</button> 
 
-        <div class="row row-cols-6 gy-3 my-5 card-container">
+        <div class="row row-cols-6 gy-3 mt-5 pb-3 card-container">
 
           <!-- ciclo for per le card -->
           <div class="card bg-black" 
@@ -51,7 +51,7 @@
     </div>
   </main>
 
-
+  <TheFooter></TheFooter>
 </template>
 
 <style lang="scss" scoped>
